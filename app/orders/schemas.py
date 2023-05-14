@@ -1,5 +1,5 @@
-from datetime import date
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from typing import Optional
 
 class SOrders(BaseModel):
     weight: float
@@ -16,9 +16,8 @@ class FOrders(BaseModel):
     time: str
     price: float
     status: str
-    complition_time: str
-    complition_date: date
-    courier_id: int
+    complition_time: Optional[str] = Field(..., nullable=True)
+    courier_id: Optional[int] = Field(..., nullable=True)
     
     class Config:
         orm_mode = True

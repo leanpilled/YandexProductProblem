@@ -1,8 +1,13 @@
+from enum import Enum
 from pydantic import BaseModel
 
+class CourierType(str, Enum):
+    FOOT = "FOOT"
+    BIKE = "BIKE"
+    AUTO = "AUTO"
 
 class SCouriers(BaseModel):
-    type: str
+    type: CourierType
     regions: list[int]
     working_hours: list[str]
     

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, Date
+from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from app.db import Base
 
 
@@ -12,5 +12,4 @@ class Orders(Base):
     price = Column(Float, nullable=False)
     status = Column(String, default="PENDING", nullable=True)
     complition_time = Column(String, nullable=True)
-    complition_date = Column(Date, nullable=True)
     courier_id = Column(Integer, ForeignKey("couriers.id"),nullable=True)
